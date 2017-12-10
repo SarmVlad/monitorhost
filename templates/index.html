@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,5 +6,10 @@
     <title>Главная</title>
 </head>
 <body>
+{% if user %}
+    Welcome, {{ user.username }}, <a href="{% url 'panel' %}">go to panel</a> , <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Enter</a> , <a href="{% url 'reg' %}">Reg</a>
+{% endif %}
 </body>
 </html>

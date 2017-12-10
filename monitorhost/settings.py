@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
 ]
 
+AUTHENTICATION_BACKENDS = [ 'main.auth_backend.EmailAuthBackend' , 'django.contrib.auth.backends.ModelBackend',]
+
+
+LOGIN_URL = '/login/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -119,5 +124,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)

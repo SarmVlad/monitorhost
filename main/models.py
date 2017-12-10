@@ -1,8 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
+from datetime import datetime
 
-class user():
-    mail = models.CharField(max_length=20)
-    first_name = models.TextField()
-    last_name = models.TextField()
-    password = models.CharField(max_length=20)
+
+#Extension User class
+class Panel(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    activate_link = models.TextField(default=datetime.now)
+    reg_date = models.DateTimeField()
     money = models.IntegerField(default=0)
