@@ -40,10 +40,19 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
 ]
 
-AUTHENTICATION_BACKENDS = [ 'main.auth_backend.EmailAuthBackend' , 'django.contrib.auth.backends.ModelBackend',]
+AUTHENTICATION_BACKENDS = [ 'main.auth_backend.EmailAuthBackend' ]
 
+AUTH_USER_MODEL = 'main.User'
 
 LOGIN_URL = '/login/'
+
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = 'ostertester20' #my gmail password
+EMAIL_HOST_USER = 'tostertester20@gmail.com' #my gmail username
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -9,7 +9,7 @@
 {% if user %}
     Welcome, {{ user.username }}, <a href="{% url 'panel' %}">go to panel</a> , <a href="{% url 'logout' %}">logout</a>
     {% else %}
-    <a href="{% url 'login' %}">Enter</a> , <a href="{% url 'reg' %}">Reg</a>
+    <a href="{% url 'login' %}?next=/">Enter</a> , <a href="{% url 'reg' %}">Reg</a>
 {% endif %}
 </body>
 </html>

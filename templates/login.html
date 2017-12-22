@@ -5,9 +5,9 @@
     <title>Вход/Регистрация</title>
 </head>
 <body>
-<form action="{% url 'signin_method' %}" method="post">
+<form action="{% url 'login' %}?next={{ next }}" method="POST">
     {% csrf_token %}
-    <input type="text" name="login">
+    <input name="username">
     <input type="password" name="password">
     <input type="submit" value="Войти">
 </form>
