@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-#import
+from ipware.ip import get_ip
 
 from django.contrib.auth import get_user_model
 
@@ -31,8 +31,18 @@ def log_in(request):
             login(request, user)
             return redirect(request.GET['next'])
         else:
-            return HttpResponse('ERROR')
 
+            content = {
+                'next': request.GET['next'],
+                'fail': True
+            }
+            return render(request, 'login.html', content)
+    
+    ip = get_ip(request)
+    if ip is not None:
+        print("We have an IP address for this client %s" %ip)
+    else:
+        print("We don't have an IP address for this client")
     content = {
         'next' : request.GET['next']
     }
@@ -46,12 +56,36 @@ def register(request):
         email = request.POST['email']
         password = request.POST['password2']
 
+        try:
+            user = User.objects.get(username=username)
+            username_uni = False
+        except User.DoesNotExist:
+            username_uni = True
+
+        try:
+            user = User.objects.get(email=email)
+            email_uni = False
+        except User.DoesNotExist:
+            email_uni = True
+
+        if not username_uni or not email_uni:
+            context = {
+                'username': username_uni,
+                'email': email_uni
+            }
+            return render(request, 'reg.html', context)
+
         user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
                                         password=password)
         user.send_hemail('Confirm your email', 'confirm_email.html')
-        return render(request, 'messange.html', {'text': 'Check your email'})
+
+        return render(request, 'message.html', {'text': 'Check your email'})
     else:
-        return render(request, 'reg.html')
+        context = {
+            'username': True,
+            'email': True
+        }
+        return render(request, 'reg.html', context)
 
 def activate(request, username, code):
     user = User.objects.get(username=username)
@@ -59,7 +93,7 @@ def activate(request, username, code):
         user.is_active = True
         user.activation_code = 'ACTIVATED'
         user.save()
-        return render(request, 'messange.html', {'text': 'Your account has been activated'})
+        return render(request, 'message.html', {'text': 'Your account has been activated'})
     else:
         return Http404()
 

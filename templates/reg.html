@@ -7,13 +7,49 @@
 <body>
 <form action="{% url 'reg' %}" method="post">
     {% csrf_token %}
-    <input title="username" name="username">
-    <input title="first_name" name="first_name">
-    <input title="last_name" name="last_name">
-    <input title="email" type="email" name="email">
-    <input title="password" type="password" name="password1">
-    <input title="password" type="password" name="password2">
-    <input type="submit">
+    <table>
+        <tr>
+            <td>
+                {% if not username %}
+                    Пользователь с таким ником уже существует
+                {% endif %}
+            <input title="username" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input title="first_name" name="first_name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input title="last_name" name="last_name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if not email %}
+                    Пользователь с такой почтой уже существует
+                {% endif %}
+                <input title="email" type="email" name="email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input title="password" type="password" name="password1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input title="password" type="password" name="password2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit">
+            </td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

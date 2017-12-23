@@ -7,8 +7,14 @@
 <body>
 <form action="{% url 'login' %}?next={{ next }}" method="POST">
     {% csrf_token %}
+    {% if fail %}
+        Неправильный логин или пароль
+    {% endif %}
     <input name="username">
     <input type="password" name="password">
+    {%  if captcha %}
+        Введите капчу
+    {% endif %}
     <input type="submit" value="Войти">
 </form>
 </body>
