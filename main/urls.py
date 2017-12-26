@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'registration/$', views.register, name='reg'),
     url(r'logout/$', views.log_out, name='logout'),
     url(r'activate/(?P<username>.+)/(?P<code>.+$)', views.activate, name='activate'),
+    url(r'recovery/$', views.recovery, name='pass_recovery'),
+    url(r'recovery/(?P<username>.+)/(?P<code>.+$)', views.change_pass, name='change_pass'),
 
     url(r'check-data/$', views.check),
 ]

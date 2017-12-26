@@ -66,8 +66,7 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     money = models.FloatField(verbose_name='money of user', default=0)
     activation_code = models.CharField(max_length=20, default=objects.make_random_password(length=20))
-
-
+    password_recovery_code = models.CharField(max_length=20, default='None')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
@@ -99,6 +98,17 @@ class User(AbstractBaseUser):
         context = { 'user_name' : self.username, 'full_name' : self.get_full_name() , 'activation_code' : self.activation_code}
         html_content = htmly.render(context)
         msg = EmailMultiAlternatives(subject, '', settings.EMAIL_HOST_USER, [self.email])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
+    def password_recovery(self):
+        self.password_recovery_code = MyUserManager.make_random_password(self, length=20)
+        self.save()
+        htmly = get_template('pass_recovery_email.html')
+        context = {'username': self.username, 'full_name': self.get_full_name(),
+                   'pass_code': self.password_recovery_code}
+        html_content = htmly.render(context)
+        msg = EmailMultiAlternatives('Запрос на восстановление пароля', '', settings.EMAIL_HOST_USER, [self.email])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
 

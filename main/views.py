@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from ipware.ip import get_ip
+from django.db.models import Q
+#from ipware.ip import get_ip
 
 from django.contrib.auth import get_user_model
 
@@ -37,12 +38,12 @@ def log_in(request):
                 'fail': True
             }
             return render(request, 'login.html', content)
-    
-    ip = get_ip(request)
+
+    '''ip = get_ip(request)
     if ip is not None:
         print("We have an IP address for this client %s" %ip)
     else:
-        print("We don't have an IP address for this client")
+        print("We don't have an IP address for this client")'''
     content = {
         'next' : request.GET['next']
     }
@@ -97,6 +98,39 @@ def activate(request, username, code):
     else:
         return Http404()
 
+
+def recovery(request):
+    if request.method == 'POST':
+        value = request.POST['value']
+        try:
+            user = User.objects.get(Q(username=value) | Q(email=value))
+        except:
+            return render(request, 'password_recovery.html', {'fail': True})
+
+        if user.is_active == False:
+            return render(request, 'password_recovery.html', {'fail': True})
+
+        user.password_recovery()
+        return render(request,'message.html', {'text': 'Вам на почту отправлена ссылка для восстановления пароля'})
+    else:
+        return render(request, 'password_recovery.html')
+
+def change_pass(request, username, code):
+    if request.method == 'POST':
+        user = User.objects.get(username=username)
+        user.set_password(request.POST['password'])
+        user.password_recovery_code = 'None'
+        user.save()
+        return render(request, 'message.html', {'text': 'Пароль изменен'})
+    else:
+        user = User.objects.get(username=username)
+        if not user.password_recovery_code == code:
+            return Http404()
+        context = {
+            'username': username,
+            'code': code
+        }
+        return render(request, 'change_password.html', context)
 
 def check(request):
     value = request.GET['value']
