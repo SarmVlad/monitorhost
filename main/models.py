@@ -104,7 +104,7 @@ class User(AbstractBaseUser):
     def password_recovery(self):
         self.password_recovery_code = MyUserManager.make_random_password(self, length=20)
         self.save()
-        htmly = get_template('pass_recovery_email.html')
+        htmly = get_template('email/pass_recovery_email.html')
         context = {'username': self.username, 'full_name': self.get_full_name(),
                    'pass_code': self.password_recovery_code}
         html_content = htmly.render(context)
