@@ -1,0 +1,180 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #991F16;
+}
+
+main{
+    flex: 1 0 auto;
+    margin: 0px;
+}
+
+.text-color h1 {
+    color: #584B4F !important;
+}
+
+.text-color h2 {
+    color: #584B4F !important;
+}
+
+.text-color h3 {
+    color: #584B4F !important;
+}
+
+.text-color h4 {
+    color: #584B4F !important;
+}
+
+.text-color h5 {
+    color: #584B4F !important;
+}
+
+.text-color p {
+    color: #584B4F !important;
+}
+
+.text-color li a {
+    color: #E53935 !important;
+}
+
+.call-to-action {
+    background-image: url(../img/background.png);
+    background-size: auto, auto 100%;
+    min-height: 100%;
+    width: 100%;
+    background-color: #991F16;
+}
+
+@media screen and (min-width: 600px) {
+    .call-to-action {
+        min-height: 400px;
+    }
+}
+
+
+
+#inputFirstName-error {
+    position: relative;
+    left: 0;
+    text-align: left !important;
+    color: red;
+}
+
+#inputLastName-error {
+    position: relative;
+    left: 0;
+    text-align: left !important;
+    color: red;
+}
+
+#inputEmail-error {
+    position: relative;
+    left: 0;
+    text-align: left !important;
+    color: red;
+}
+
+#inputPassword-error {
+    position: relative;
+    left: 0;
+    text-align: left !important;
+    color: red;
+}
+
+.slash {
+    margin: 0 8px;
+    color: #fff;
+}
+
+a, a:link, a:visited, a:active {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+}
+ .authBlock a:hover {
+    color: #E53935;
+ }
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.authBlock a {
+    background-color: transparent;
+    transition: .1s;
+    margin: 5px 0px 5px 0px;
+}
+
+.mainLogo {
+    width: 40px; 
+    height: 40px;
+}
+
+.servers-container {
+    background-color: #EFEBE9;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+@media screen and (max-width: 1023px) {
+    .servers tr {
+        border-top: 1px solid #999;
+        border-bottom: 1px solid #999;
+        padding: .3em;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .servers td.servers-number, .servers thead, {
+        display: none;
+    }
+
+    #hnav input[type=checkbox]:checked~label+ul, #hnav label, .servers table, .servers td, .servers tr, .servers th{
+        display: block;
+        text-align: center;
+    }
+
+    .servers-numbers, .servers thead {
+        display: none;
+    }
+
+    .servers tr {
+        border-top: 1px solid #999;
+        border-bottom: 1px solid #999;
+        padding: .3em;
+        text-align: center;
+    }
+
+    .servers th {
+        padding: 2px
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .servers-number, .servers thead, {
+        display: none;
+    }
+}
+
+.rate-list ul li strong {
+    font-weight: 900
+}
+
+.rate-list ul li {
+    font-weight: 500;
+    margin: 5px 0px 0px 0px
+}
+
+.footer-navigation li {
+    padding-bottom: 5px
+}

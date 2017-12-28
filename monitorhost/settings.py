@@ -69,7 +69,7 @@ ROOT_URLCONF = 'monitorhost.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates', 'templates/email'],
+        'DIRS': ['templates', 'templates/email', 'templates/other'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
