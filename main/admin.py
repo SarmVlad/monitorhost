@@ -3,12 +3,15 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
-#from main.models import User
-
+from main import models
 from django.contrib.auth import get_user_model
 User = get_user_model()
 
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('date', 'from_admin', 'is_read', 'author', 'recipient')
+
+admin.site.register(models.Message, MessageAdmin)
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required

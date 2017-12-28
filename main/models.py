@@ -10,6 +10,8 @@ from django.contrib.auth.models import (
 )
 
 
+
+
 class MyUserManager(BaseUserManager):
     #use_in_migrations = True
 
@@ -67,9 +69,13 @@ class User(AbstractBaseUser):
     money = models.FloatField(verbose_name='money of user', default=0)
     activation_code = models.CharField(max_length=20, default=objects.make_random_password(length=20))
     password_recovery_code = models.CharField(max_length=20, default='None')
+    show_tips = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
+
+    def send_message(self, author, text, admin=False):
+        Message.objects.create(recioient=self, author=author, text=text, from_admin=admin)
 
     def get_full_name(self):
         return '%s %s' % (self.first_name, self.last_name)
@@ -118,5 +124,16 @@ class User(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+
+class Message(models.Model):
+    date = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, related_name='author')
+    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipient')
+    text = models.TextField()
+    from_admin =  models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False)
+
+    def __str__(self):
+        return 'From: ' + self.author.username + ' To: ' + self.recipient.username
 
 

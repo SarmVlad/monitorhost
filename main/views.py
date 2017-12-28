@@ -151,3 +151,11 @@ def log_out(request):
 @login_required
 def panel(request):
     return render(request, 'panel.html')
+
+@login_required
+def panel_messages(request):
+    #massege_list =
+    context = {
+        'user': request.user
+    }
+    return render(request, 'panel_messages.html', context)

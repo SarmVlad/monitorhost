@@ -6,6 +6,8 @@ urlpatterns = [
     url(r'^index/$', views.index),
 
     url(r'panel/$', views.panel, name='panel'),
+    url(r'panel/messages/$', views.panel_messages, name='panel_messages'),
+    #url(r'panel/messages/$', views.panel_write_message, name='write_message'),
 
     url(r'login/$', views.log_in, name='login'),
     url(r'registration/$', views.register, name='reg'),
