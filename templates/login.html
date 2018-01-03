@@ -14,29 +14,21 @@
     {% include "other/header.html" %}
 
     <div class="call-to-action">
-      <main class="valign-wrapper" style="margin: 0 auto; padding: 40px 0px 40px 0px">
+      <main class="valign-wrapper" style="margin: 0 auto; padding: 70px 0px 70px 0px">
         <div class="container">
           <div class="row">
             <div class="col s12 m8 l8 xl6 offset-m2 offset-l2 offset-xl3">
-              <div class="test-container z-depth-2" style="padding: 0px; margin: auto;">  
+              <div class="test-container z-depth-3" style="padding: 0px;">  
                 <div class="blue-grey darken-3"> 
                   <div class="container center-align">
-                    <h3 style="margin: 0px; padding: 20px; color: #EFEBE9;">Регистрация</h3>
+                    <h3 style="margin: 0px; padding: 20px; color: #EFEBE9;">Вход</h3>
                   </div>
                 </div>
                 <div class="brown lighten-5" style="padding: 20px; z-index: 2"> 
                   <div class="container"> 
                     <div class="row">
-                      <form id="signup-form" role="form" class="col s12 form">
+                      <form id="signin-form" role="form" class="col s12 form">
                         <div class="row">
-                          <div class="input-field col s12 m6 l6 xl6 left-align">
-                            <input id="inputFirstName" type="text" class="validate" for="inputFirstName" name="inputFirstName">
-                            <label for="inputFirstName">Имя</label>
-                          </div>
-                          <div class="input-field col s12 m6 l6 xl6 left-align">
-                            <input id="inputLastName" type="text" class="validate" for="inputLastName" name="inputLastName">
-                            <label for="inputLastName">Фамилия</label>
-                          </div>
                           <div class="input-field col s12 m12 l12 xl12 left-align">
                             <input id="inputEmail" type="text" class="validate" for="inputEmail" name="inputEmail">
                             <label for="inputEmail">E-mail</label>
@@ -45,11 +37,11 @@
                             <input id="inputPassword" type="password" class="validate" for="inputPassword" name="inputPassword">
                             <label for="inputPassword">Пароль</label>
                           </div>
-                          <div class="col s12">
-                            <p>Регистрируясь на AtomMC, Вы автоматически принимаете <a href="#" style="color: #00A6B2">Пользовательское соглашение</a>, а так же соглашаетесь на <a href="#" style="color: #00A6B2">Обработку персональных данных</a>.</p>
+                          <div class="left-align">
+                            <p><a href="" style="position: relative; color: #00A6B2; left: .75rem;">Восстановить пароль</a></p>
                           </div>
                           <div class="col s12 center-align" style="margin-top: 20px">
-                            <button class="btn waves-effect waves-light blue-grey darken-3" type="submit" name="action">Зарегистрироваться
+                            <button class="btn waves-effect waves-light blue-grey darken-3" type="submit" name="action">Войти
                               <i class="material-icons right">send</i>
                             </button>
                           </div>
@@ -71,7 +63,7 @@
 
       <!--Import jQuery before materialize.js-->
       {% include "other/scripts.html" %}
-      <script src="js/navigation.js"></script><!--Этот скрипт очень важен, с помощью него работает навигация!!!-->
-      <script src="js/form-validate.js" defer></script>
+      <script src="{% static 'js/navigation.js' %}"></script>
+      <script src="{% static 'js/form-validate.js' %}" defer></script>
     </body>
   </html>
