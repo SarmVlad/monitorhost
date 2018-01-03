@@ -29,10 +29,10 @@ def ws_connect(message):
 def ws_message(message):
     mess = json.loads(message.content['text'])
     user = models.User.objects.get(username=message.user.username)
-    message_db = models.Message.objects.create(author=user, text=mess['text'], chat=models.Chat.objects.get(id=6))
-    #models.Chat.objects.get(id=6).message_set.create(author=user, text=mess['text'])
+
+    models.Chat.objects.get(id=mess['chat_id']).message_set.create(author=user, text=mess['text'])
     Group("chat").send({
-        "text": '{"username" : " ' +user.username+ ' ", "date" : " ' +message_db.date.__str__()+' ", "text" : " ' +mess['text']+ ' "}',
+        "text": '{"username" : " ' +user.username+ ' ", "date" : " ' +timezone.now().__str__()+' ", "text" : " ' +mess['text']+ ' "}',
     })
 
 
