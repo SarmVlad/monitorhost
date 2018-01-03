@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // Note that the path doesn't matter right now; any WebSocket
+        // connection gets bumped over to WebSocket consumers
+
+        socket = new WebSocket("ws://" + window.location.host + "/chat/");
+
+        socket.onmessage = function(e) {
+            data = JSON.parse(e.data);
+            document.getElementById('chat_box').innerHTML +=
+                '<li>' + data.text + ' ' + data.username + ' - ' + data.date + '</li>';
+        }
+        // Call onopen directly if socket is already open
+        if (socket.readyState == WebSocket.OPEN) socket.onopen();
+
+        function send() {
+            //alert('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
+            socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
+        }
+    </script>
+</head>
+<body>
+<ul id="chat_box">
+{% for mess in messages %}
+    <li>{{ mess.text }} {{ mess.author.username }} - {{ mess.date }}</li>
+{% endfor %}
+</ul>
+<input name="message" id="message"></input>
+<button id="btnSubmit" onclick="send();">Submit</button>
+</body>
+</html>

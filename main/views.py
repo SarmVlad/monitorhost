@@ -4,12 +4,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.db.models import Q
 #from ipware.ip import get_ip
+from tornado_websockets.websocket import WebSocket
 
 from django.contrib.auth import get_user_model
 
 from main.admin import UserCreationForm
+from main.models import Chat
 
 User = get_user_model()
+
+import logging
+import datetime
+from redis import StrictRedis
+from tornado import web, websocket, escape
 
 
 def index(request):
@@ -153,9 +160,28 @@ def panel(request):
     return render(request, 'panel.html')
 
 @login_required
-def panel_messages(request):
-    #massege_list =
+def chats(request):
+    chat_list = request.user.chat_set.all()
+    chats = []
+    for chat in chat_list:
+        chats.append( {
+            'title' : chat.users.exclude(username=request.user.username)[0].username,
+            'chat' : chat
+        })
+
     context = {
-        'user': request.user
+        'user': request.user,
+        'chats' : chats,
     }
-    return render(request, 'panel_messages.html', context)
+    return render(request, 'chats.html', context)
+
+@login_required
+def chat(request, id=None):
+    chat = Chat.objects.get(pk=id)
+    messages = chat.message_set.order_by('date')
+    context = {
+        'messages' : messages,
+        'chat_id' : id,
+    }
+    return render(request,'chat.html', context)
+

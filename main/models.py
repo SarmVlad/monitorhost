@@ -52,6 +52,8 @@ class MyUserManager(BaseUserManager):
         return user
 
 
+
+
 class User(AbstractBaseUser):
     objects = MyUserManager()
 
@@ -124,16 +126,23 @@ class User(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
-
-class Message(models.Model):
-    date = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, related_name='author')
-    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipient')
-    text = models.TextField()
-    from_admin =  models.BooleanField(default=False)
-    is_read = models.BooleanField(default=False)
+class Chat(models.Model):
+    users = models.ManyToManyField(User)
 
     def __str__(self):
-        return 'From: ' + self.author.username + ' To: ' + self.recipient.username
+        if self.users.count() == 0:
+            return 'Null'
+        else:
+            return '%s %s' % (self.users.all()[0].username ,self.users.all()[1].username)
+
+
+class Message(models.Model):
+    chat = models.ForeignKey(Chat)
+    date = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User)
+    text = models.TextField()
+
+    def __str__(self):
+        return 'From: ' + self.author.username
 
 

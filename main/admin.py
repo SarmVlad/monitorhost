@@ -9,9 +9,10 @@ User = get_user_model()
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('date', 'from_admin', 'is_read', 'author', 'recipient')
+    list_display = ('date',  'author',)
 
 admin.site.register(models.Message, MessageAdmin)
+admin.site.register(models.Chat)
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -74,7 +75,7 @@ class MyUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'money')}),
-        ('Info', {'fields': ('date_joined', 'activation_code', 'password_recovery_code', 'last_login')}),
+        ('Info', {'fields': ('date_joined', 'activation_code', 'password_recovery_code', 'last_login',)}),
         ('Permissions', {'fields': ('is_admin','is_active')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
