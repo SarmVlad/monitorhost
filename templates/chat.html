@@ -8,8 +8,7 @@
         // Note that the path doesn't matter right now; any WebSocket
         // connection gets bumped over to WebSocket consumers
 
-        socket = new WebSocket("ws://" + window.location.host + "/chat/");
-
+        socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
         socket.onmessage = function(e) {
             data = JSON.parse(e.data);
             document.getElementById('chat_box').innerHTML +=
@@ -20,7 +19,11 @@
 
         function send() {
             //alert('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
-            socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
+            //Нужно брать этот элемент при загрузке стр, чтобы не обращаться к нему часто
+            //Дату можно брать из js а при загрузке её легче обработать
+            //мб пытаться восстановить соединение если оно оборвалось
+            socket.send(document.getElementById('message').value);
+            //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
         }
     </script>
 </head>
