@@ -12,8 +12,8 @@
         socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
         socket.onmessage = function(e) {
             data = JSON.parse(e.data);
-            document.getElementById('chat_box').innerHTML +=
-                '<li>' + data.text + ' ' + data.username + ' - ' + data.date + '</li>';
+            document.getElementById('chatLogsHeight').innerHTML +=
+                '<div class="chat self"><div class="user-photo"><img src="img/1Trj-B3acIk.jpg" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
         }
         // Call onopen directly if socket is already open
         if (socket.readyState == WebSocket.OPEN) socket.onopen();
@@ -24,39 +24,47 @@
             //Дату можно брать из js а при загрузке её легче обработать
             //мб пытаться восстановить соединение если оно оборвалось
             socket.send(document.getElementById('message').value);
+            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'});
+            $('#message').val('');
+
             //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
         }
-
     </script>
 </head>
 <body>
-<ul id="chat_box">
-<div class="chat-wrapper">
-  <div class="chatbox">
-    <div class="chatlogs">
-      <div class="chatLogsHeight">
-        <div class="chat friend">
-          <div class="user-photo"><img src="img/1Trj-B3acIk.jpg" alt=""></div>
-          <p class="chat-message">Lorem ipsum dolor sit amet?</p>
+{{user}}
+<div class="container">
+    <div class="chat-wrapper">
+      <div class="chatbox">
+        <div class="chatlogs">
+          <div id="chatLogsHeight" class="chatLogsHeight">
+            {% for mess in messages %}
+            <div class="chat self">
+                <div class="user-photo"><img src="img/1Trj-B3acIk.jpg" alt=""></div>
+                <div class="chat-message"><span class="username" style="display: block;">{{ mess.author.username }} <span class="message-date">{{ mess.date }}</span></span><p>{{ mess.text }}</p></div>
+            </div>
+            {% endfor %}
+          </div>
+          
         </div>
-        <div class="chat self">
-          <div class="user-photo"><img src="img/" alt=""></div>
-          <p class="chat-message">Lorem ipsum dolor sit amet</p>
+
+        <div class="chat-form">
+          <textarea name="message" id="message"></textarea>
+          <button id="btnSubmit" onclick="send();">send</button>
         </div>
+
       </div>
-      
     </div>
-    <div class="chat-form">
-      <textarea name="" id="" cols="30" rows="10"></textarea>
-      <button>send</button>
-    </div>
-  </div>
-</div>
-{% for mess in messages %}
-    <li>{{ mess.text }} {{ mess.author.username }} - {{ mess.date }}</li>
-{% endfor %}
-</ul>
-<input name="message" id="message"></input>
-<button id="btnSubmit" onclick="send();">Submit</button>
+  </div>    
+
+{% include "other/scripts.html" %}
+<script>
+    $(function() {
+        var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'},.1);
+            alert(data.username)
+    });
+</script>
 </body>
 </html>
