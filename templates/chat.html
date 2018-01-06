@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     {% block title %}<title>Чат</title>{% endblock %}
     {% include "other/links.html" %}
-{% block top-js %}
+    {% block top-js %}
     <script>
         // Note that the path doesn't matter right now; any WebSocket
         // connection gets bumped over to WebSocket consumers
@@ -14,9 +14,16 @@
         socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
         socket.onmessage = function(e) {
             data = JSON.parse(e.data);
-            document.getElementById('chatLogsHeight').innerHTML +=
+
+            if ({{user.username}} == data.username) {
+                document.getElementById('chatLogsHeight').innerHTML +=
                 '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
-                var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+            }else{
+                document.getElementById('chatLogsHeight').innerHTML +=
+                '<div class="chat friend><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
+            }
+            
+            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
             $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
         }
         // Call onopen directly if socket is already open
@@ -39,6 +46,7 @@
     
 </head>
 <body>
+    
     {% block cp-content %}
     <div class="chat-wrapper">
       <div class="chatbox">
