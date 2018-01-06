@@ -1,11 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-It's panel
-<a href="{% url 'chats' %}">Сообщения</a>
-</body>
-</html>
+  <html>
+    <head>
+      {% include "other/links.html" %}
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    
+    <body style="background-color: #E0E0E0"> 
+      <header>
+        <ul id="dropdown-button-laptop-yet" class="dropdown-content">
+          <li><a href="#!">О нас</a></li>
+          <li><a href="#!">Правила</a></li>
+          <li><a href="#!">Эксклюзив</a></li>
+          <li><a href="#!">Сообщество VK</a></li>
+        </ul>
+  
+        <ul id="dropdown-button-mobile-yet" class="dropdown-content">
+          <li><a href="#!">О нас</a></li>
+          <li><a href="#!">Правила</a></li>
+          <li><a href="#!">Эксклюзив</a></li>
+          <li><a href="#!">Сообщество VK</a></li>
+        </ul>
+  
+        <ul id="dropdown-button-laptop-support" class="dropdown-content">
+          <li><a href="#!">Написать в поддержку</a></li>
+          <li><a href="#!">База знаний</a></li>
+        </ul>
+  
+        <ul id="dropdown-button-mobile-support" class="dropdown-content">
+          <li><a href="#!">Написать в поддержку</a></li>
+          <li><a href="#!">База знаний</a></li>
+        </ul>
+      
+        <nav style="background-color: #16425B">   
+          <div class="container">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo left">AtomMC</a>
+              <a href="" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="">Главная</a></li>
+                <li><a href="">Хостинг</a></li>
+                <li><a href="">Мониторинг</a></li>
+                <li><a href="">Новости</a></li>
+                <li><a class="dropdown-button-laptop-support" href="#!" data-activates="dropdown-button-laptop-support">Поддержка<i class=" material-icons right">arrow_drop_down</i></a></li>
+                <!--<li><a href="">Новости</a></li>-->
+                <li><a class="dropdown-button-laptop-yet" href="#!" data-activates="dropdown-button-laptop-yet">Ещё<i class="material-icons right"> arrow_drop_down</i></a></li>
+              </ul>
+              <ul id="mobile-demo" class="side-nav">
+                <li><a href="">Главная</a></li>
+                <li><a href="">Хостинг</a></li>
+                <li><a href="">Мониторинг</a></li>
+                <li><a href="">Правила</a></li>
+                <li><a class="dropdown-button-mobile-support" href="#!" data-activates="dropdown-button-mobile-support">Поддержка<i class=" material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-button-mobile-yet" href="#!" data-activates="dropdown-button-mobile-yet">Ещё<i class="material-icons right"> arrow_drop_down</i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="cp-wrapper">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col xl2 l3 hide-on-med-and-down" style="height: 1000px; padding-right: 0;">
+              <div class="inner" style="background-color: white;">
+                <ul class="side-navigation">
+                  <li class="valign-wrapper center-align" style="width: 100%; padding: 20px 0px 20px 0px;background-color: #81C4D7;">
+                    <div class="user" style="text-align: center; margin: 0 auto;">
+                      <div class="user-photo" style="margin: 0 auto">
+                        <img src="https://pp.userapi.com/c831109/v831109156/35d62/zujQxcb6g7k.jpg" alt="">
+                      </div>
+                      <span style="color: #2F668F">Владимир Тихонов</span>
+                    </div>
+                  </li>
+                  <li class="bold"><a href="about.html" class="waves-effect waves-teal" style="color: #000">Профиль</a></li>
+                  <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Новости</a></li>
+                  <li class="bold"><a href="mobile.html" class="waves-effect waves-teal">Сервера</a></li>
+                  <li class="bold"><a href="{% url 'chats' %}" class="waves-effect waves-teal">Сообщения</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col s12 m12 l9 xl10 cp-content-border">
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+
+      
+
+
+
+      
+      
+      
+
+      <!--Import jQuery before materialize.js-->
+      {% include "other/scripts.html" %}
+      <script>
+        $(document).ready(function(){
+          $('.parallax').parallax();
+          
+        });
+
+        $('.carousel.carousel-slider').carousel({fullWidth: true});
+        $('.next').click(function(){
+          $('.carousel').carousel('next');
+        });
+        $('.prev').click(function(){
+          $('.carousel').carousel('prev');
+        });
+
+        $(function() {
+          var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+          $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'},.1);
+        });
+
+
+
+        /*var menu1 = $('.menu1').height();
+        var menu2 = $('.menu2').height();
+        var menu = menu1 + menu2;
+        var castomSliderHeight = document.documentElement.clientHeight - menu;
+        $('.castomslider').css('height', castomSliderHeight);
+        $('.castomslider').css('width', document.documentElement.clientWidth);*/
+        //alert(document.documentElement.clientHeight - (menu1 + menu2));
+        //alert(document.documentElement.clientWidth);
+      </script>
+    </body>
+  </html>

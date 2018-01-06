@@ -27,7 +27,8 @@
                 <div class="brown lighten-5" style="padding: 20px; z-index: 2"> 
                   <div class="container"> 
                     <div class="row">
-                      <form id="signin-form" role="form" class="col s12 form" action="{% url 'login' %}?next={{ next }}" method="POST">
+                      <form id="signin-form"class="col s12 form" action="{% url 'login' %}?next={{ next }}" method="POST">
+                        {% csrf_token %}
                         <div class="row">
                           <div class="input-field col s12 m12 l12 xl12 left-align">
                             <input id="inputEmail" type="text" class="validate" for="inputEmail" name="inputEmail">
