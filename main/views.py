@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.db.models import Q
 #from ipware.ip import get_ip
-from tornado_websockets.websocket import WebSocket
 
 from django.contrib.auth import get_user_model
 
@@ -13,11 +12,7 @@ from main.models import Chat
 
 User = get_user_model()
 
-import logging
 import datetime
-from redis import StrictRedis
-from tornado import web, websocket, escape
-
 
 def index(request):
     if request.user.is_authenticated():

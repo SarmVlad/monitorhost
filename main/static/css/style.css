@@ -1,3 +1,7 @@
+html {
+
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -6,6 +10,12 @@ body {
 
 nav {
     background-color: #991F16;
+}
+
+@media screen and (max-width: 1300px) {
+    .panel-media {
+        padding-left: 200px
+    }
 }
 
 main{
@@ -173,4 +183,454 @@ tbody {
 
 .footer-navigation li {
     padding-bottom: 5px
+}
+
+.castomslider {
+    background: rgb(131, 206, 212);
+    background: -webkit-linear-gradient(rgb(131, 206, 212) 80%, rgb(168, 221, 225) 96%);
+    background: -o-linear-gradient(rgb(131, 206, 212) 80%, rgb(168, 221, 225) 96%);
+    background: linear-gradient(rgb(131, 206, 212) 80%, rgb(168, 221, 225) 96%) ;
+    width: 100%;
+    height: 308px;
+}
+
+.background-img-paradise-edition {
+    background-image: linear-gradient(rgba(255,255,255, 0.3), rgba(17,18,18, 0)), url('../img/paradise-background.png');
+    height: 308px;
+    background-color: rgba(33, 33, 31, 1);
+}
+
+.bdsm {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-box-shadow: 0px 9px 16px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 9px 16px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 9px 16px 0px rgba(0,0,0,0.5);
+}
+
+.background-paradise-edition {
+    background-image: linear-gradient(rgba(255,255,255, 0.3), rgba(17,18,18, 0.3)), url('../img/paradise-background.png');
+    height: 308px;
+    background-position: 50%;
+    background-color: rgba(33, 33, 31, 0.8);
+}
+
+.background-img-dungeon-edition {
+    background-image: linear-gradient(rgba(93,97,97, 0.5), rgba(0,0,0, 0.8)), url(../img/dungeon-background.png);
+    height: 308px;
+}
+
+.background-dungeon-edition {
+    background-image: linear-gradient(rgba(50,52,53, 0.3), rgba(0,0,0, 0.8)), url(../img/dungeon-background.png);
+    height: 308px;
+    background-position: 50%;
+}
+
+.background-img-hell-edition {
+    background-image: linear-gradient(rgba(11,12,13, 0.8), rgba(255,255,255, .2)), url(../img/hell-background.png);
+    height: 308px;
+
+}
+
+.background-hell-edition {
+    background-image: linear-gradient(rgba(11,12,13, 0.9), rgba(255,255,255, .9)), url(../img/hell-background.png);
+    height: 308px;
+    background-position: 50%;
+}
+
+.edition-shadow {
+    
+}
+
+.next {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    right: 20px; 
+    margin: auto; 
+    width: 20px; 
+    height: 20px;
+}
+
+.prev {
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 20px; 
+    margin: auto;
+    width: 20px; 
+    height: 20px; 
+}
+
+.next-inner {
+    width: 20px; 
+    height: 20px; 
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    transform: rotate(-45deg);
+}
+
+.prev-inner {
+    width: 20px; 
+    height: 20px; 
+    -webkit-box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    -moz-box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    box-shadow: 2px 2px 0px 1px rgba(0,0,0,1);
+    transform: rotate(135deg);
+}
+
+.users-info-container {
+    background-image: linear-gradient(rgba(46,76,89, 0.4), rgba(46,76,89, 0.4)), url(../img/shattered-island.gif);
+    background-color: #2E4C59;
+    width: 100%;
+    
+}
+
+.rate-container h2 {
+    font-weight: bold;
+    color: #2E4C59;
+}
+
+.rate-container p {
+    font-weight: 400;
+    font-size: 21px;
+}
+
+.editions-info {
+    text-align: center;
+    padding: 50px 0px 40px 0px
+}
+
+.feature-item {
+    padding: 10px 0px 10px 0px
+}
+
+.feature-item h5 {
+    color: white;
+    font-weight: 500;
+    margin: 0px 0px 12px 0px;
+}
+
+.rate-header {
+    position: relative;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .rate-header h5 {
+        font-size: 23px;
+    }
+}
+
+.rate-title {
+    color: #fff;
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0;
+    margin: auto;
+    padding: 0px 0px 0px 24px;
+
+    height: 20px; 
+    font-size: 29px;
+    font-weight: 300;
+}
+
+.rate-price {
+    color: #fff;
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    right: 0;
+    margin: auto;
+    padding: 0px 24px 0px 0px;
+
+    height: 20px; 
+    font-size: 29px;
+    font-weight: 300;
+}
+
+.why-us-block {
+    background-image: linear-gradient(rgba(46,76,89, 0.4), rgba(46,76,89, 0.4)), url(../img/shattered-island.gif);
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+    -webkit-box-shadow: 0px -2px 16px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px -2px 16px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px -2px 16px 0px rgba(0,0,0,0.5);
+}
+
+.why-us-block h2::after {
+    content: " ";
+    width: 123px;
+    height: 2px;
+    background-color: #83CED4;
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.slide-container {
+    position: relative;
+    padding: 50px 0px 50px 0px;
+}
+
+.slide-container h2 {
+    font-size: 50px !important
+}
+
+.slide-container img {
+    font-size: 50px !important
+}
+
+
+
+
+
+ul.side-nav.fixed {
+    overflow: hidden;
+}
+
+.side-nav.fixed {
+    left: 0;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    position: fixed;
+}
+
+ul:not(.browser-default) {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.side-nav {
+    position: fixed;
+    width: 300px;
+    left: 0;
+    top: 0;
+    margin: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    height: 100%;
+    height: calc(100% + 60px);
+    height: -moz-calc(100%);
+    padding-bottom: 60px;
+    background-color: #fff;
+    z-index: 999;
+    overflow-y: auto;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);
+}
+
+/* Chat */
+
+.chat-wrapper *  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chatbox {
+    width: 100%;
+    height: 600px;
+    background: #fff;
+    padding: 15px 5px;
+    margin: 20px auto;
+    box-shadow: 0 3px #ccc;
+}
+
+.chatlogs {
+    padding: 10px;
+    width: 100%;
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.chatlogs::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatlogs::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
+}
+
+.chat {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin: 0px 0px 10px 0px;
+}
+
+.chat .user-photo {
+    width: 60px;
+    height: 60px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.chat .chat-message {
+    width: 80%;
+    padding: 15px;
+    margin: 5px 10px 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 450px) {
+    .chat .chat-message {
+        width: 75%;
+        padding: 15px;
+        margin: 5px 10px 0;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .chat .chat-message {
+        width: 72%;
+        padding: 15px;
+        margin: 5px 10px 0;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .chat .chat-message {
+        width: 70%;
+        padding: 15px;
+        margin: 5px 10px 0;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 18px;
+    }
+}
+
+.username, .message-date {
+    font-size: 15px
+}
+
+.friend .chat-message {
+    background-color: #1adda4;
+}
+
+.self .chat-message {
+    background-color: #1ddced;
+    order: -1;
+}
+
+.chat-form {
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.chat-form textarea {
+    background: #fbfbfb;
+    width: 70%;
+    height: 51px;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.chat-form textarea:focus {
+    background-color: #fff;
+}
+
+.chat-form textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat-form textarea::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
+}
+
+.chat-form button {
+    background-color: #1ddced;
+    padding: 1px 15px;
+    font-size: 30px;
+    color: #fff;
+    border: none;
+    margin: 0 10px;
+    border-radius: 3px;
+    box-shadow: 0 3px 0 #0eb2c1;
+    cursor: pointer;
+
+    -webkit-transition: background .2s ease;
+    -moz-transition: background .2s ease;
+    -o-transition: background .2s ease;
+}
+
+.chat-form button:hover {
+    background-color: #13c8d9;
+}
+
+.chat .user-photo {
+    border-radius: 50%;
+    background-color: #81C4D7;
+    overflow: hidden;
+}
+
+.chat .user-photo img {
+    width: 100%;
+}
+
+/* Cp */
+
+.user .user-photo {
+    border-radius: 50%;
+    background-color: #81C4D7;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.user .user-photo img {
+    width: 100%;
+}
+
+.user span {
+    font-size: 18px
+}
+
+.side-navigation {
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border: 1px solid #858585;
+}
+
+.side-navigation li>a {
+    color: rgba(0,0,0,0.87);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 0 0 20px;
+}
+
+.cp-content-border {
+    margin: 15px 0;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border: 1px solid #858585;
 }

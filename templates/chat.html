@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% include "other/links.html" %}
     <script>
         // Note that the path doesn't matter right now; any WebSocket
         // connection gets bumped over to WebSocket consumers
@@ -25,10 +26,32 @@
             socket.send(document.getElementById('message').value);
             //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
         }
+
     </script>
 </head>
 <body>
 <ul id="chat_box">
+<div class="chat-wrapper">
+  <div class="chatbox">
+    <div class="chatlogs">
+      <div class="chatLogsHeight">
+        <div class="chat friend">
+          <div class="user-photo"><img src="img/1Trj-B3acIk.jpg" alt=""></div>
+          <p class="chat-message">Lorem ipsum dolor sit amet?</p>
+        </div>
+        <div class="chat self">
+          <div class="user-photo"><img src="img/" alt=""></div>
+          <p class="chat-message">Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+      
+    </div>
+    <div class="chat-form">
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <button>send</button>
+    </div>
+  </div>
+</div>
 {% for mess in messages %}
     <li>{{ mess.text }} {{ mess.author.username }} - {{ mess.date }}</li>
 {% endfor %}
