@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
   <html>
     <head>
@@ -5,7 +6,11 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      {% block title %}{% endblock %}
+
+      {% block top-js %}{% endblock %}
     </head>
+
     
     <body style="background-color: #E0E0E0"> 
       <header>
@@ -84,7 +89,15 @@
             </div>
             
             <div class="col s12 m12 l9 xl10 cp-content-border">
-              
+                <div class="inner" style="background-color: red;">
+                    <div class="cp-content">
+                        <div class="row">
+                            <div class="col m12">
+              {% block cp-content %}{% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
           </div>
@@ -99,7 +112,7 @@
       
       
       
-
+      {% include "other/footer.html" %}
       <!--Import jQuery before materialize.js-->
       {% include "other/scripts.html" %}
       <script>
@@ -132,5 +145,6 @@
         //alert(document.documentElement.clientHeight - (menu1 + menu2));
         //alert(document.documentElement.clientWidth);
       </script>
+      {% block bottom-js %}{% endblock %}
     </body>
   </html>

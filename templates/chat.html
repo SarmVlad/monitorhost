@@ -1,10 +1,12 @@
+{% extends "panel.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% block title %}<title>Чат</title>{% endblock %}
     {% include "other/links.html" %}
+{% block top-js %}
     <script>
         // Note that the path doesn't matter right now; any WebSocket
         // connection gets bumped over to WebSocket consumers
@@ -33,10 +35,11 @@
             //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
         }
     </script>
+    {% endblock %}
+    
 </head>
 <body>
-{{user}}
-<div class="container">
+    {% block cp-content %}
     <div class="chat-wrapper">
       <div class="chatbox">
         <div class="chatlogs">
@@ -57,15 +60,18 @@
         </div>
 
       </div>
-    </div>
-  </div>    
+    </div>   
+    {% endblock %}
 
 {% include "other/scripts.html" %}
+{% block bottom-js %}
 <script>
     $(function() {
         var chatLogsHeight = $('.chatLogsHeight').innerHeight();
             $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'},.1);
     });
 </script>
+
+    {% endblock %}
 </body>
 </html>

@@ -1,23 +1,32 @@
+{% extends "panel.html" %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% block title %}<title>Сообщения</title>{% endblock %}
+    {% include "other/links.html" %}
+    {% block top-js %}{% endblock %}
 </head>
 <body>
-<ul>
-    <h3>Чаты:</h3>
-    {% if user.chat_set.all|length_is:"0" %}
-        <p>Чатов нету</p>
-    {% else %}
-        {% for element in chats %}
+    {% block cp-content %}
+        <ul>
+            <h3>Чаты:</h3>
+            {% if user.chat_set.all|length_is:"0" %}
+            <p>Чатов нету</p>
+            {% else %}
+            {% for element in chats %}
             <li>
-            <a href="{% url 'chat' id=element.chat.pk %}">{{ element.title }}</a>
+                <a href="{% url 'chat' id=element.chat.pk %}">{{ element.title }}</a>
             </li>
-        {% endfor %}
-    {% endif %}
+            {% endfor %}
+        {% endif %}
 
-    </ul>
+        </ul>
+    {% endblock %}
+
+
+    {% include "other/scripts.html" %}
+    {% block bottom-js %}{% endblock %}
 </body>
 </html>
