@@ -177,6 +177,7 @@ def chat(request, id=None):
     context = {
         'messages' : messages,
         'chat_id' : id,
+        'user' : request.user,
     }
     return render(request,'chat.html', context)
 

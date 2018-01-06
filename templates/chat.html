@@ -14,6 +14,7 @@
         socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
         socket.onmessage = function(e) {
             data = JSON.parse(e.data);
+<<<<<<< HEAD
 
             if ({{user.username}} == data.username) {
                 document.getElementById('chatLogsHeight').innerHTML +=
@@ -24,6 +25,12 @@
             }
             
             var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+=======
+            document.getElementById('chatLogsHeight').innerHTML +=
+                '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message">' +
+                '<span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
+                var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+>>>>>>> f7f3132a02dd066ba3eb648e94f3d12cfccedda1
             $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
         }
         // Call onopen directly if socket is already open
