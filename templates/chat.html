@@ -15,7 +15,8 @@
         socket.onmessage = function(e) {
             data = JSON.parse(e.data);
             document.getElementById('chatLogsHeight').innerHTML +=
-                '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
+                '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message">' +
+                '<span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
                 var chatLogsHeight = $('.chatLogsHeight').innerHeight();
             $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
         }
