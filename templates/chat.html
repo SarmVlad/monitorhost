@@ -7,48 +7,7 @@
     {% block title %}<title>Чат</title>{% endblock %}
     {% include "other/links.html" %}
     {% block top-js %}
-    <script>
-        // Note that the path doesn't matter right now; any WebSocket
-        // connection gets bumped over to WebSocket consumers
-
-        socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
-        socket.onmessage = function(e) {
-            data = JSON.parse(e.data);
-<<<<<<< HEAD
-
-            if ({{user.username}} == data.username) {
-                document.getElementById('chatLogsHeight').innerHTML +=
-                '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
-            }else{
-                document.getElementById('chatLogsHeight').innerHTML +=
-                '<div class="chat friend><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
-            }
-            
-            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
-=======
-            document.getElementById('chatLogsHeight').innerHTML +=
-                '<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message">' +
-                '<span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>';
-                var chatLogsHeight = $('.chatLogsHeight').innerHeight();
->>>>>>> f7f3132a02dd066ba3eb648e94f3d12cfccedda1
-            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
-        }
-        // Call onopen directly if socket is already open
-        if (socket.readyState == WebSocket.OPEN) socket.onopen();
-
-        function send() {
-            //alert('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
-            //Нужно брать этот элемент при загрузке стр, чтобы не обращаться к нему часто
-            //Дату можно брать из js а при загрузке её легче обработать
-            //мб пытаться восстановить соединение если оно оборвалось
-            socket.send(document.getElementById('message').value);
-            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
-            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'});
-            $('#message').val('');
-
-            //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
-        }
-    </script>
+    
     {% endblock %}
     
 </head>
@@ -59,12 +18,19 @@
       <div class="chatbox">
         <div class="chatlogs">
           <div id="chatLogsHeight" class="chatLogsHeight">
-            {% for mess in messages %}
-            <div class="chat self">
-                <div class="user-photo"><img src="" alt=""></div>
-                <div class="chat-message"><span class="username" style="display: block;">{{ mess.author.username }} <span class="message-date">{{ mess.date }}</span></span><p>{{ mess.text }}</p></div>
-            </div>
-            {% endfor %}
+               {% for mess in messages %}
+                    {% if user.username == mess.author.username %}
+                        <div class="chat self">
+                            <div class="user-photo"><img src="" alt=""></div>
+                            <div class="chat-message"><span class="username" style="display: block;">{{ mess.author.username }} <span class="message-date">{{ mess.date }}</span></span><p>{{ mess.text }}</p></div>
+                        </div>
+                    {% else %}
+                        <div class="chat friend">
+                            <div class="user-photo"><img src="" alt=""></div>
+                            <div class="chat-message"><span class="username" style="display: block;">{{ mess.author.username }} <span class="message-date">{{ mess.date }}</span></span><p>{{ mess.text }}</p></div>
+                        </div>
+                    {% endif %}
+               {% endfor %}
           </div>
           
         </div>
@@ -83,9 +49,54 @@
 <script>
     $(function() {
         var chatLogsHeight = $('.chatLogsHeight').innerHeight();
-            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'},.1);
+        $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'},.1);
     });
 </script>
+<script>
+        // Note that the path doesn't matter right now; any WebSocket
+        // connection gets bumped over to WebSocket consumers
+
+        socket = new WebSocket("ws://" + window.location.host + "/chat/{{ chat_id }}/");
+        var {{user.username}} = {};
+            {{user.username}}["{{user.username}}"] = 1;
+            {{user.username}}["{{user.username}}"] = 7;
+            function getName(arrayVariable){ // функция для извлечения имени
+                for (key in arrayVariable)
+                    return key;
+            }
+        socket.onmessage = function(e) {
+
+            data = JSON.parse(e.data);
+
+            if ("{{user.username}}" == String(data.username)) {
+                $('#chatLogsHeight').append('<div class="chat self"><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>');
+            }else{
+                $('#chatLogsHeight').append('<div class="chat friend"><div class="user-photo"><img src="" alt=""></div><div class="chat-message"><span class="username" style="display: block;">' + data.username + ' ' + '<span class="message-date">' + data.date + '</span></span><p>' + data.text + '</p></div></div>');
+            };
+
+            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
+        }
+        // Call onopen directly if socket is already open
+        if (socket.readyState == WebSocket.OPEN) socket.onopen();
+
+        function send() {
+            //alert('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
+            //Нужно брать этот элемент при загрузке стр, чтобы не обращаться к нему часто
+            //Дату можно брать из js а при загрузке её легче обработать
+            //мб пытаться восстановить соединение если оно оборвалось
+            socket.send(document.getElementById('message').value);
+            var chatLogsHeight = $('.chatLogsHeight').innerHeight();
+            $('.chatlogs').animate({'scrollTop':chatLogsHeight + 'px'}, 1500);
+            $('#message').val('');
+
+            //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
+        }
+
+    
+
+
+    </script>
 
     {% endblock %}
 </body>
