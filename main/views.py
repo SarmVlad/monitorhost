@@ -152,7 +152,10 @@ def log_out(request):
 
 @login_required
 def panel(request):
-    return render(request, 'panel.html')
+    context = {
+        'user' : request.user,
+    }
+    return render(request, 'panel.html', context)
 
 @login_required
 def chats(request):

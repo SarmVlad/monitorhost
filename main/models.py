@@ -72,6 +72,8 @@ class User(AbstractBaseUser):
     activation_code = models.CharField(max_length=20, default=objects.make_random_password(length=20))
     password_recovery_code = models.CharField(max_length=20, default='None')
     show_tips = models.BooleanField(default=True)
+    photo = models.ImageField(upload_to='main/media/profile_photo/',
+                              default='profile_photo/default.png')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
