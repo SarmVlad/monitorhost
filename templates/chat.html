@@ -35,10 +35,10 @@
           
         </div>
 
-        <div class="chat-form">
+        <form class="chat-form" onsubmit="return false">
           <textarea name="message" id="message"></textarea>
           <button id="btnSubmit" onclick="send();">send</button>
-        </div>
+        </form>
 
       </div>
     </div>   
@@ -92,10 +92,6 @@
 
             //socket.send('{"chat_id" : {{ chat_id }}, "text" : "' + document.getElementById('message').value + '"}');
         }
-
-    
-
-
     </script>
 
     {% endblock %}
