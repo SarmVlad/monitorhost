@@ -23,7 +23,7 @@ def index(request):
     context = {
         'user' : user,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'minecraft-hosting.html', context)
 
 def log_in(request):
     if request.method == 'POST':

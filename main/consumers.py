@@ -32,8 +32,9 @@ def ws_message(message, chat_id):
     user = models.User.objects.get(username=message.user.username)
 
     models.Chat.objects.get(id=chat_id).message_set.create(author=user, text=message['text'])
+    text = {"username" : user.username, "date" : timezone.now().__str__(), "text" : message['text']}
     Group("chat-%s" % chat_id).send({
-        "text": '{"username" : "'+user.username+'", "date" : " ' +timezone.now().__str__()+' ", "text" : " ' +message['text']+ ' "}',
+        "text": json.dumps(text),
     })
 
 
