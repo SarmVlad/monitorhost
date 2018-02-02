@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,18 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
+    {% include "other/links.html" %}
 
     <title>Хостинг серверов Minecraft</title>
   </head>
-  <body>
+  <body style="margin: 0">
     <div class="wrapper">
       <!-- Header -->
-      <div id="header1" class="header">
+      <div id="header1" class="header main-h">
         <div class="container">
           <!-- Navigation -->
           
@@ -38,11 +35,21 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">Мониторинг</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Поддержка</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Поддержка</a>
+                  <div class="dropdown-menu ddm-styles">
+                    <a class="dropdown-item" href="#">Написать в поддержку</a>
+                    <a class="dropdown-item" href="#">База знаний</a>
+                    <a class="dropdown-item" href="#">Пользовательское соглашение</a>
+                  </div>
                 </li>
-                <li class="nav-item" style="margin-right: 10px">
-                  <a class="nav-link" href="#">Еще</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Еще</a>
+                  <div class="dropdown-menu ddm-styles">
+                    <a class="dropdown-item" href="#">О нас</a>
+                    <a class="dropdown-item" href="#">Эксклюзив</a>
+                    <a class="dropdown-item" href="https://vk.com/evilgamellc" target="_blank">Сообщество во ВКонтакте</a>
+                  </div>
                 </li>
                 <li class="nav-item">
                   <button type="button" class="btn btn-warning">Войти</button>
@@ -78,9 +85,10 @@
             </div>
           </div>
         </div>
-        <a href="#content" class="arrow">
+        <!-- <a href="#content" class="arrow">
           <i class="fa fa-arrow-down" aria-hidden="true"></i>
-        </a>
+        </a> -->
+        
       </div>
       
       <!-- Content -->
@@ -100,7 +108,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <div class="card">
+                  <div class="card card-hover">
                     <div class="card-header start-card-header nav">
                       <h3 style="margin: 0; color: white">S1</h3>
                       <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -122,7 +130,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                  <div class="card">
+                  <div class="card card-hover">
                     <div class="card-header start-card-header nav">
                       <h3 style="margin: 0; color: white">S1</h3>
                       <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -144,7 +152,7 @@
                 </div>
 
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                  <div class="card">
+                  <div class="card card-hover">
                     <div class="card-header start-card-header nav">
                       <h3 style="margin: 0; color: white">S1</h3>
                       <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -184,7 +192,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -206,7 +214,7 @@
                   </div>
   
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -228,7 +236,7 @@
                   </div>
   
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
@@ -268,7 +276,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
@@ -290,7 +298,7 @@
                   </div>
   
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
@@ -312,7 +320,7 @@
                   </div>
   
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
-                    <div class="card">
+                    <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
                         <h3 style="margin: 0; color: white">S1</h3>
                         <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
@@ -348,7 +356,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix"">
-                  <img src="img/shield (8).png" alt="">
+                  <img src="{% static 'img/shield (8).png' %}" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 wu-block-m-text-fix">
                   <h3>Защита от DDOS атак</h3>
@@ -362,14 +370,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix wu-block-nvis"">
-                  <img src="img/support (1).png" alt="">
+                  <img src="{% static 'img/support (1).png' %}" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 offset-md-2 col-lg-8 wu-block-m-text-fix wu-ra-block">
                   <h3>Круглосуточная поддержка через ВКонтакте</h3>
                   <p>Мы предоставляем поддержку через сообщения <a href="">нашей группы ВКонтакте</a>, вам не прийдется заходить в личный кабинет сайта для решения технических или иных проблем. За поддержку отвечает команда высококвалифицированных специалистов.</p>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix wu-block-vis">
-                  <img src="img/support (1).png" alt="">
+                  <img src="{% static 'img/support (1).png' %}" alt="">
                 </div>
               </div>
             </div>
@@ -379,7 +387,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix"">
-                  <img src="img/recommended.png" alt="">
+                  <img src="{% static 'img/recommended.png' %}" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 wu-block-m-text-fix">
                   <h3>Привилегии для наших клиентов</h3>
@@ -393,14 +401,14 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix wu-block-nvis"">
-                  <img src="img/dollar.png" alt="">
+                  <img src="{% static 'img/dollar.png' %}" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 offset-md-2 col-lg-8 wu-block-m-text-fix wu-ra-block">
                   <h3>У нас самые низкие цены в СНГ</h3>
                   <p>Мы предоставляем сервера Minecraft по самым низким ценам в СНГ. Это обусловленно тем, что мы не завышаем стоимость "железа". Наша деятельность направлена на благополучие вас и вашего бизнеса без лишних затрат.</p>
                 </div>
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix wu-block-vis">
-                  <img src="img/dollar.png" alt="">
+                  <img src="{% static 'img/dollar.png' %}" alt="">
                 </div>
               </div>
             </div>
@@ -410,11 +418,11 @@
             <div class="container">
               <div class="row">
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 wu-block-m-img-fix"">
-                  <img src="img/284075.png" alt="">
+                  <img src="{% static 'img/284075.png' %}" alt="">
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 wu-block-m-text-fix">
                   <h3>Быстрые сервера</h3>
-                  <p>Наши сервера работают на базе мощнейших процессоров от Intel с частотой до 3.8 GHz: <a href="https://ark.intel.com/ru/products/82767/Intel-Xeon-Processor-E5-1680-v3-20M-Cache-3_20-GHz" target="_blank">Intel® Xeon® Processor E5-1680 v3</a>. Каждый сервер находится в отдельном лоте, что гарантирует обещанную мощность и отсутствие помех со стороны других серверов. </p>
+                  <p>Наши сервера работают на базе мощнейших процессоров от Intel с частотой до 3.8 GHz: <a href="https://ark.intel.com/ru/products/82767/Intel-Xeon-Processor-E5-1680-v3-20M-Cache-3_20-GHz" target="_blank">Intel® Xeon® Processor E5-1680 v3</a>. Каждый сервер находится в отдельном cлоте, что гарантирует обещанную мощность и отсутствие помех со стороны других серверов. </p>
                 </div>
               </div>
             </div>
@@ -441,12 +449,22 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#">Мониторинг</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Поддержка</a>
-                  </li>
-                  <li class="nav-item" style="margin-right: 10px">
-                    <a class="nav-link" href="#">Еще</a>
-                  </li>
+                  <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Поддержка</a>
+                  <div class="dropdown-menu ddm-styles">
+                    <a class="dropdown-item" href="#">Написать в поддержку</a>
+                    <a class="dropdown-item" href="#">База знаний</a>
+                    <a class="dropdown-item" href="#">Пользовательское соглашение</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Еще</a>
+                  <div class="dropdown-menu ddm-styles">
+                    <a class="dropdown-item" href="#">О нас</a>
+                    <a class="dropdown-item" href="#">Эксклюзив</a>
+                    <a class="dropdown-item" href="https://vk.com/evilgamellc" target="_blank">Сообщество во ВКонтакте</a>
+                  </div>
+                </li>
                   <li class="nav-item" style="padding-top: 8px">
                     <button type="button" class="btn btn-warning">Войти</button>
                   </li>

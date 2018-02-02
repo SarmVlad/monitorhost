@@ -1,0 +1,45 @@
+@media screen and (max-width: 650px) {
+    .wu-block img {
+        width: 70px;
+    }
+
+    .login-and-registration {
+        margin: 90px 0px 90px 0px !important;
+    }  
+}
+
+@media screen and (max-width: 575px) {
+    .rates-margin-fix {
+        margin-top: 20px;
+    }
+
+    .wu-block img {
+        width: 90px;
+        text-align: center;
+        padding-bottom: 10px
+    }   
+
+    .wu-block-m-img-fix {
+        text-align: center;
+    }
+
+    .wu-block-m-text-fix {
+        text-align: center;
+    }
+
+    .wu-block-vis {
+        display: none;
+    }
+
+    .wu-block-nvis {
+        display: initial !important;
+    }
+
+    .wu-block-mt {
+        margin: 0;
+    }
+
+    .login-and-registration {
+        margin: 80px 0px 80px 0px !important;
+    }   
+}
