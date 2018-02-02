@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'panel/chats/$', views.chats, name='chats'),
     url(r'panel/chat/(?P<id>.+)/$', views.chat, name='chat'),
     url(r'panel/profile/$', views.profile, name='profile'),
+    url(r'panel/profile/img', views.load_user_img, name='load_user_img'),
     #url(r'panel/messages/$', views.panel_write_message, name='write_message'),
 
     url(r'login/$', views.log_in, name='login'),
