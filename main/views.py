@@ -184,3 +184,9 @@ def chat(request, id=None):
     }
     return render(request,'chat.html', context)
 
+@login_required
+def profile(request, id=None):
+    context = {
+        'user' : request.user,
+    }
+    return render(request,'profile.html', context)
