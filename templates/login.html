@@ -27,9 +27,6 @@
                     <div class="card-block">
                       <form id="signin-form" action="{% url 'login' %}?next={{ next }}" method="POST">
                         {% csrf_token %}
-                        {% if fail %}
-                          Неправильный логин или пароль
-                        {% endif %}
                         <div class="row">
                           <div class="col-md-12">
                             <input id="inputEmail" for="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="E-mail">
@@ -39,9 +36,14 @@
                             <input id="inputPassword" for="inputPassword" name="inputPassword" type="text" class="form-control" placeholder="Пароль">
                             <label for="inputPassword"></label>
                           </div>
+                          {% if fail %}
+                            <label for="">Неправильный логин или пароль</label>
+                          {% endif %}
+                          
                           <div class="col-md-12 mt-input" style="padding-left: 15px;">
                             <a href="{% url 'pass_recovery' %}">Восстановить пароль</a>
                           </div>
+                          
                           <!--  
                           <div class="col-md-11" style="padding: 20px 0px 20px 15px">
                             <p style="margin: 0">Регистрируясь на AtomMC, Вы автоматически принимаете <a href="#" style="color: #00A6B2">Пользовательское соглашение</a>, а так же соглашаетесь на <a href="#" style="color: #00A6B2">Обработку персональных данных</a>.</p>
