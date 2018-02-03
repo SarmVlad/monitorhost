@@ -179,11 +179,20 @@ def panel(request):
 @login_required
 def load_user_img(request):
     if request.method == 'POST':
-        user = request.user
-        #user.photo = request.FILES['file']
-        #user.save()
-        print(request.FILES.items())
-    return redirect('/')
+        form = UploadImgForm(request.POST, request.FILES)
+        # Если данные валидны
+        if form.is_valid():
+            # обрабатываем файл
+            handle_uploaded_user_img(request.FILES['file'])
+            user = request.user
+            if not user.photo.name == "default.jpg":
+                user.photo.delete()
+            user.photo = os.path.normpath("%s%s%s%s%s" %(os.getcwd(),"/main", settings.MEDIA_URL, "profile_photo/",
+                                                         request.FILES['file'].name))
+            user.save()
+            # перенаправляем на другую страницу
+            return redirect('/panel/')
+    return Http404
 
 @login_required
 def chats(request):
