@@ -11,49 +11,44 @@
     
     <body>
     
-    {% include "other/header.html" %}
-
-    <div class="call-to-action">
-      <main class="valign-wrapper" style="margin: 0 auto; padding: 40px 0px 40px 0px">
-        <div class="container">
-          <div class="row">
-            <div class="col s12 m8 l8 xl6 offset-m2 offset-l2 offset-xl3">
-              <div class="test-container z-depth-2" style="padding: 0px; margin: auto;">  
-                <div class="blue-grey darken-3"> 
-                  <div class="container center-align">
-                    <h3 style="margin: 0px; padding: 20px; color: #EFEBE9;">Регистрация</h3>
-                  </div>
-                </div>
-                <div class="brown lighten-5" style="padding: 20px; z-index: 2"> 
-                  <div class="container"> 
-                    <div class="row">
-                      <form id="signup-form" role="form" class="col s12 form">
+    <div class="wrapper">
+        <div id="header1" class="header">
+          {% include "other/header.html" %}
+          
+          <div class="login-and-registration">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-8 offset-lg-2">
+                  <div class="card">
+                    <div class="card-header lar-header">
+                      <h2>Регистрация</h2>
+                    </div>
+                    <div class="card-block">
+                      <form id="signup-form"  action="{% url 'signin_method' %}" method="post">
                         <div class="row">
-                          <div class="input-field col s12 m6 l6 xl6 left-align">
-                            <input id="inputFirstName" type="text" class="validate" for="inputFirstName" name="inputFirstName">
-                            <label for="inputFirstName">Имя</label>
+                          <div class="col-md-6">
+                            <input id="inputFirstName" for="inputFirstName" name="inputFirstName" type="text" class="form-control" placeholder="Имя">
+                            <label for="inputFirstName"></label>
                           </div>
-                          <div class="input-field col s12 m6 l6 xl6 left-align">
-                            <input id="inputLastName" type="text" class="validate" for="inputLastName" name="inputLastName">
-                            <label for="inputLastName">Фамилия</label>
+                          <div class="col-md-6">
+                            <input id="inputLastName" for="inputLastName" name="inputLastName" type="text" class="form-control" placeholder="Фамилия">
+                            <label for="inputLastName"></label>
                           </div>
-                          <div class="input-field col s12 m12 l12 xl12 left-align">
-                            <input id="inputEmail" type="text" class="validate" for="inputEmail" name="inputEmail">
-                            <label for="inputEmail">E-mail</label>
+                          <div class="col-md-12 mt-input">
+                            <input id="inputEmail" for="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="E-mail">
+                            <label for="inputEmail"></label>
                           </div>
-                          <div class="input-field col s12 m12 l12 xl12 left-align">
-                            <input id="inputPassword" type="password" class="validate" for="inputPassword" name="inputPassword">
-                            <label for="inputPassword">Пароль</label>
+                          <div class="col-md-12 mt-input">
+                            <input id="inputPassword" for="inputPassword" name="inputPassword" type="text" class="form-control" placeholder="Пароль">
+                            <label for="inputPassword"></label>
                           </div>
-                          <div class="col s12">
-                            <p>Регистрируясь на AtomMC, Вы автоматически принимаете <a href="#" style="color: #00A6B2">Пользовательское соглашение</a>, а так же соглашаетесь на <a href="#" style="color: #00A6B2">Обработку персональных данных</a>.</p>
+                          
+                          <div class="col-md-11" style="padding: 20px 0px 20px 15px">
+                            <p style="margin: 0">Регистрируясь на EvilGame, Вы автоматически принимаете <a href="#" style="color: #00A6B2">Пользовательское соглашение</a>, а так же соглашаетесь на <a href="#" style="color: #00A6B2">Обработку персональных данных</a>.</p>
                           </div>
-                          <div class="col s12 center-align" style="margin-top: 20px">
-                            <button class="btn waves-effect waves-light blue-grey darken-3" type="submit" name="action">Зарегистрироваться
-                              <i class="material-icons right">send</i>
-                            </button>
-                          </div>
+                          
                         </div>
+                        <button style="margin-top: 20px" type="submit" class="btn start-btn">Войти</button>
                       </form>
                     </div>
                   </div>
@@ -61,17 +56,17 @@
               </div>
             </div>
           </div>
+
+          
+          
         </div>
-      </main>
 
-      {% include "other/footer.html" %}
-
-    </div>
+        {% include "other/footer.html" %}
+      </div>
       
 
       <!--Import jQuery before materialize.js-->
       {% include "other/scripts.html" %}
-      <script src="{% static 'js/navigation.js' %}"></script>
       <script src="{% static 'js/form-validate.js' %}" defer></script>
     </body>
   </html>
