@@ -3,6 +3,10 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.db.models import Q
+from .forms import UploadImgForm, handle_uploaded_user_img
+from monitorhost import settings
+import os
+
 #from ipware.ip import get_ip
 
 from django.contrib.auth import get_user_model
@@ -152,10 +156,34 @@ def log_out(request):
 
 @login_required
 def panel(request):
+    if request.method == 'POST':
+        form = UploadImgForm(request.POST, request.FILES)
+        # Если данные валидны
+        if form.is_valid():
+            # обрабатываем файл
+            handle_uploaded_user_img(request.FILES['file'])
+            user = request.user
+            user.photo.delete()
+            user.photo = os.path.normpath("%s%s%s%s%s" %(os.getcwd(),"/main", settings.MEDIA_URL, "profile_photo/",
+                                                         request.FILES['file'].name))
+            user.save()
+            # перенаправляем на другую страницу
+            return redirect('/panel/')
+    form = UploadImgForm()
     context = {
         'user' : request.user,
+        'img_form': form
     }
     return render(request, 'panel.html', context)
+
+@login_required
+def load_user_img(request):
+    if request.method == 'POST':
+        user = request.user
+        #user.photo = request.FILES['file']
+        #user.save()
+        print(request.FILES.items())
+    return redirect('/')
 
 @login_required
 def chats(request):

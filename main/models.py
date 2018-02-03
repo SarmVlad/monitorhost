@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.conf import settings
@@ -73,7 +74,7 @@ class User(AbstractBaseUser):
     password_recovery_code = models.CharField(max_length=20, default='None')
     show_tips = models.BooleanField(default=True)
     photo = models.ImageField(upload_to='main/media/profile_photo/',
-                              default='profile_photo/default.png')
+                              default='main/media/profile_photo/default.png')
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email']

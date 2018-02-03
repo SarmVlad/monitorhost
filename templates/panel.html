@@ -78,9 +78,10 @@
                         <img src="{{ user.photo.url }}" alt="">
                       </div>
                       <span style="color: #2F668F">{{user.first_name}} {{user.last_name}}</span>
+                        <br>Баланс {{ user.money }}
                     </div>
                   </li>
-                  <li class="bold"><a href="about.html" class="waves-effect waves-teal" style="color: #000">Профиль</a></li>
+                  <li class="bold"><a href="{% url "panel" %}" class="waves-effect waves-teal" style="color: #000">Профиль</a></li>
                   <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Новости</a></li>
                   <li class="bold"><a href="mobile.html" class="waves-effect waves-teal">Сервера</a></li>
                   <li class="bold"><a href="{% url 'chats' %}" class="waves-effect waves-teal">Сообщения</a></li>
@@ -93,7 +94,16 @@
                     <div class="cp-content">
                         <div class="row">
                             <div class="col m12">
-                              {% block cp-content %}{% endblock %}
+                              {% block cp-content %}
+
+                                  <form method="POST" onsubmit="{% url "load_user_img" %}" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                      Загрузите фото профиля
+                                      {{ img_form }}
+
+                                    <input type="submit" onsubmit="{% url "load_user_img" %}">
+                                  </form>
+                              {% endblock %}
                             </div>
                         </div>
                     </div>
