@@ -96,12 +96,13 @@
                             <div class="col m12">
                               {% block cp-content %}
 
-                                  <form method="POST" onsubmit="{% url "load_user_img" %}" enctype="multipart/form-data">
+                                  <form method="POST" action="{% url "load_user_img" %}" enctype="multipart/form-data">
                                   {% csrf_token %}
                                       Загрузите фото профиля
-                                      {{ img_form }}
+                                      <input type="file" name="file">
+                                      <a href="{% url "panel" %}">Panel</a>
 
-                                    <input type="submit" onsubmit="{% url "load_user_img" %}">
+                                    <input type="submit">
                                   </form>
                               {% endblock %}
                             </div>
