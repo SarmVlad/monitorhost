@@ -31,7 +31,7 @@ def index(request):
 
 def log_in(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        username = request.POST['inputEmail']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
