@@ -1,3 +1,9 @@
+@media screen and (min-width: 1199px) {
+    .panel-nav-p-fixer {
+        padding-right: 0 !important;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .wu-block img {
         width: 70px;
@@ -12,7 +18,7 @@
     .header {
         height: 100%;
     }
-    
+
     .rates-margin-fix {
         margin-top: 20px;
     }
