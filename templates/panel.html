@@ -22,7 +22,7 @@
                   <div class="btn-group-vertical side-nav" role="group" aria-label="Vertical button group" style="width: 100%;">
                     <div class="ava" style="width: 100%; background: #537597">
                       <div class="user-photo">
-                        <img src="" alt="">
+                        <img src="{{ user.photo.url }}" alt="">
                       </div>
                       <h3 class="user-balance">Баланс: </h3>
                     </div>
@@ -39,6 +39,15 @@
                     </div>
                     <div class="card-body">
                       <div class="container">
+
+                          <form method="POST" action="{% url "load_user_img" %}" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                                      Загрузите фото профиля
+                                      <input type="file" name="file">
+                                      <a href="{% url "panel" %}">Panel</a>
+
+                                    <input type="submit">
+                                  </form>
                         <div class="row">
                           <div class="col-md-1">
                             <div class="col" style="background: red; height: 790px;"></div>

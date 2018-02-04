@@ -6,6 +6,11 @@
 </head>
 <body>
     {{ text }}
-    <a href="{% url 'index' %}">На главную</a>, <a href="{% url 'login' %}?next=/">Войти</a>
+    <a href="{% url 'index' %}">На главную</a>
+    {% if user %}
+        <a href="{% url 'panel' %}?next=/">,Мой аккаунт</a>
+        {% else %}
+        <a href="{% url 'login' %}?next=/">,Войти</a>
+    {% endif %}
 </body>
 </html>

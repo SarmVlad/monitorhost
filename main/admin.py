@@ -13,6 +13,9 @@ class MessageAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Message, MessageAdmin)
 admin.site.register(models.Chat)
+admin.site.register(models.Server_template)
+admin.site.register(models.Server)
+
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required

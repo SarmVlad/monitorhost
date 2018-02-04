@@ -12,7 +12,7 @@ import os
 from django.contrib.auth import get_user_model
 
 from main.admin import UserCreationForm
-from main.models import Chat
+from main.models import Chat, Server_template
 
 User = get_user_model()
 
@@ -24,8 +24,11 @@ def index(request):
     else:
         user = None
 
+    servers = Server_template.objects.all()
+
     context = {
         'user' : user,
+        'servers' : servers,
     }
     return render(request, 'minecraft-hosting.html', context)
 
@@ -227,3 +230,39 @@ def profile(request, id=None):
         'user' : request.user,
     }
     return render(request,'profile.html', context)
+
+@login_required
+def servers(request):
+    user_servers = request.user.server_set.all()
+    context = {
+        'servers' : user_servers,
+    }
+    return render(request, 'servers.html', context)
+
+
+@login_required
+def servers_for_sale(request):
+    servers = Server_template.objects.all()
+    context = {
+        'servers': servers,
+    }
+    return render(request, 'servers_for_sale.html', context)
+
+
+@login_required
+def buy_server(request, id=None):
+    server_template = Server_template.objects.get(pk=id)
+    user = request.user
+    if (user.money - server_template.price) >= 0:
+        user.money -= server_template.price
+        user.server_set.create(
+            processor=server_template.processor,
+            ram = server_template.ram,
+            disk = server_template.disk,
+            price = server_template.price,
+            name = server_template.name,
+        )
+        user.save()
+        return redirect("/panel/servers/")
+    return render(request, "message.html", {'text' : "Недостаточно средств"})
+

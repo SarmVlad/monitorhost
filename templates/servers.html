@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="{% url "servers_for_sale" %}">Купить сервер</a>
+    {% if servers %}
+        <ul>
+        {% for server in servers %}
+            <li>
+                {{ server }} - {{ server.status }}
+            </li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        У вас ни одного сервера
+    {% endif %}
+</body>
+</html>
