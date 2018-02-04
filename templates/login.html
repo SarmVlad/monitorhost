@@ -28,15 +28,21 @@
                       <form id="signin-form" action="{% url 'login' %}?next={{ next }}" method="POST">
                         {% csrf_token %}
                         <div class="row">
+                        {% csrf_token %}
                           <div class="col-md-12">
+                              {% csrf_token %}
                             <input id="inputEmail" for="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="E-mail">
                             <label for="inputEmail"></label>
                           </div>
+                        {% csrf_token %}
                           <div class="col-md-12 mt-input">
+                              {% csrf_token %}
                             <input id="inputPassword" for="inputPassword" name="inputPassword" type="text" class="form-control" placeholder="Пароль">
                             <label for="inputPassword"></label>
+
                           </div>
                           {% if fail %}
+                              {% csrf_token %}
                             <label for="">Неправильный логин или пароль</label>
                           {% endif %}
                           

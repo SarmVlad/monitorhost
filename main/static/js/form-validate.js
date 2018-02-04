@@ -46,27 +46,13 @@ $("#signup-form").validate({
 
 $("#signin-form").validate({
     rules: {
-        inputEmail: {
-            required: true,
-            email: true,
-        },
 
-        inputPassword: {
-            required: true,
-            minlength: 8,
-        },
+
     },
 
     messages: {
-        inputEmail: {
-            required: 'Поле обязательно для заполнения!',
-            email: 'Введите корректный адрес электроннй почты!',
-        },
 
-        inputPassword: {
-            required: 'Поле обязательно для заполнения!',
-            minlength: 'Пароль должен содержать не менее 8-ми символов!',
-        },
+
     }
 })
 

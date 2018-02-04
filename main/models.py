@@ -149,3 +149,31 @@ class Message(models.Model):
         return 'From: ' + self.author.username
 
 
+class Server_template(models.Model):
+    price = models.IntegerField()
+    name = models.CharField(max_length=60)
+    processor = models.CharField(max_length=60)
+    ram = models.CharField(max_length=60)
+    disk = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.name
+
+class Server(models.Model):
+    owner = models.ForeignKey(User)
+    ip = models.CharField(max_length=40)
+    #port = models.IntegerField()
+    password = models.CharField(max_length=40)
+    login = models.CharField(max_length=40)
+    activation_date = models.DateTimeField(null=True)
+    status = models.CharField(max_length=30, default="Обрабатывается")
+    price = models.IntegerField()
+    name = models.CharField(max_length=60)
+    # harware
+    processor = models.CharField(max_length=60)
+    ram = models.CharField(max_length=60)
+    disk = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.name
+
