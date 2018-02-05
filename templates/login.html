@@ -37,13 +37,13 @@
                         {% csrf_token %}
                           <div class="col-md-12 mt-input">
                               {% csrf_token %}
-                            <input id="inputPassword" for="inputPassword" name="inputPassword" type="text" class="form-control" placeholder="Пароль">
+                            <input id="inputPassword" for="inputPassword" name="inputPassword" type="password" class="form-control" placeholder="Пароль">
                             <label for="inputPassword"></label>
 
                           </div>
                           {% if fail %}
                               {% csrf_token %}
-                            <label for="">Неправильный логин или пароль</label>
+                            <label style="padding-left: 15px" for="">Неправильный логин или пароль</label>
                           {% endif %}
                           
                           <div class="col-md-12 mt-input" style="padding-left: 15px;">
@@ -56,7 +56,12 @@
                           </div>-->
                           
                         </div>
-                        <button style="margin-top: 20px" type="submit" class="btn start-btn">Войти</button>
+                        <div class="nav">
+                          <button style="margin-top: 20px" type="submit" class="btn start-btn">Войти</button>
+                          <a href = '{% url "reg" %}'" style="margin-top: 20px" class="ml-auto btn start-btn">Зарегистрироваться</a>
+
+                        </div>
+                        
                       </form>
                     </div>
                   </div>

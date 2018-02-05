@@ -2,7 +2,7 @@
           <!-- Navigation -->
           
           <nav class="navbar navbar-expand-lg navigation">
-            <a class="navbar-brand" href="#">EvilGame</a>
+            <a class="navbar-brand" href="{% url 'index' %}">EvilGame</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i style="color: white" class="fa fa-bars"></i>
             </button>
@@ -20,7 +20,7 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Поддержка</a>
-                  <div class="dropdown-menu ddm-styles">
+                  <div class="dropdown-menu ddm-styles dropdown-menu-right">
                     <a class="dropdown-item" href="#">Написать в поддержку</a>
                     <a class="dropdown-item" href="#">База знаний</a>
                     <a class="dropdown-item" href="#">Пользовательское соглашение</a>
@@ -28,15 +28,32 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Еще</a>
-                  <div class="dropdown-menu ddm-styles">
+                  <div class="dropdown-menu ddm-styles dropdown-menu-right">
                     <a class="dropdown-item" href="#">О нас</a>
                     <a class="dropdown-item" href="#">Эксклюзив</a>
                     <a class="dropdown-item" href="https://vk.com/evilgamellc" target="_blank">Сообщество во ВКонтакте</a>
                   </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown" style="margin-left: 20px">
+                {% if user %}
+
+                    <div class="header-ava dropdown-toggle" style="width: 100%; margin-top: 5px" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      <div class="user-photo" style="display: inline-block;">
+                        <img src="{{ user.photo.url }}" alt="">
+                      </div>
+                    </div>
+                    <div class="dropdown-menu ddm-styles dropdown-menu-right">
+                      <a class="dropdown-item" href="{% url 'panel' %}">Панель</a>
+                      <a class="dropdown-item" href="#">Баланс: </a>
+                      <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
+                    </div>
+                  <!--  
+                  Welcome, {{ user.username }}, <a href="{% url 'load_user_img' %}">go to panel</a> , <a href="{% url 'logout' %}">logout</a>-->
+                  {% else %}
                   <button style="margin-left: 6px" type="button" class="btn btn-warning" onclick="window.location.href = '{% url "login" %}?next=/'">Войти</button>
+                {% endif %}
                 </li>
+                
               </ul>
             
           </div>

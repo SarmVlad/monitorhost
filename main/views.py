@@ -60,40 +60,40 @@ def log_in(request):
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        inputEmail = request.POST['inputEmail']
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        email = request.POST['email']
+        inputEmail = request.POST['inputEmail']
         password = request.POST['password2']
 
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(username=inputEmail)
             username_uni = False
         except User.DoesNotExist:
             username_uni = True
 
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(email=inputEmail)
             email_uni = False
         except User.DoesNotExist:
             email_uni = True
 
         if not username_uni or not email_uni:
             context = {
-                'username': username_uni,
-                'email': email_uni
+                'inputEmail': username_uni,
+                'inputEmail': email_uni
             }
             return render(request, 'reg.html', context)
 
-        user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, email=email,
+        user = User.objects.create_user(username=inputEmail, first_name=first_name, last_name=last_name, email=inputEmail,
                                         password=password)
         user.send_hemail('Confirm your email', 'confirm_email.html')
 
         return render(request, 'message.html', {'text': 'Check your email'})
     else:
         context = {
-            'username': True,
-            'email': True
+            'inputEmail': True,
+            'inputEmail': True
         }
         return render(request, 'reg.html', context)
 
@@ -110,9 +110,9 @@ def activate(request, username, code):
 
 def recovery(request):
     if request.method == 'POST':
-        value = request.POST['value']
+        inputEmail = request.POST['inputEmail']
         try:
-            user = User.objects.get(Q(username=value) | Q(email=value))
+            user = User.objects.get(Q(username=inputEmail) | Q(email=inputEmail))
         except:
             return render(request, 'password_recovery.html', {'fail': True})
 
@@ -182,20 +182,11 @@ def panel(request):
 @login_required
 def load_user_img(request):
     if request.method == 'POST':
-        form = UploadImgForm(request.POST, request.FILES)
-        # Если данные валидны
-        if form.is_valid():
-            # обрабатываем файл
-            handle_uploaded_user_img(request.FILES['file'])
-            user = request.user
-            if not user.photo.name == "default.jpg":
-                user.photo.delete()
-            user.photo = os.path.normpath("%s%s%s%s%s" %(os.getcwd(),"/main", settings.MEDIA_URL, "profile_photo/",
-                                                         request.FILES['file'].name))
-            user.save()
-            # перенаправляем на другую страницу
-            return redirect('/panel/')
-    return Http404
+        user = request.user
+        #user.photo = request.FILES['file']
+        #user.save()
+        print(request.FILES.items())
+    return redirect('/')
 
 @login_required
 def chats(request):
@@ -231,6 +222,7 @@ def profile(request, id=None):
     }
     return render(request,'profile.html', context)
 
+
 @login_required
 def servers(request):
     user_servers = request.user.server_set.all()
@@ -265,4 +257,3 @@ def buy_server(request, id=None):
         user.save()
         return redirect("/panel/servers/")
     return render(request, "message.html", {'text' : "Недостаточно средств"})
-

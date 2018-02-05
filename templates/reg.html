@@ -24,11 +24,13 @@
                       <h2>Регистрация</h2>
                     </div>
                     <div class="card-block">
-                      <form id="signup-form"  action="{% url 'signin_method' %}" method="post">
+                      <form id="signup-form"  action="{% url 'reg' %}" method="post">
+                        {% csrf_token %}
                         <div class="row">
                           <div class="col-md-6">
                             <input id="inputFirstName" for="inputFirstName" name="inputFirstName" type="text" class="form-control" placeholder="Имя">
                             <label for="inputFirstName"></label>
+                            
                           </div>
                           <div class="col-md-6">
                             <input id="inputLastName" for="inputLastName" name="inputLastName" type="text" class="form-control" placeholder="Фамилия">
@@ -37,9 +39,14 @@
                           <div class="col-md-12 mt-input">
                             <input id="inputEmail" for="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="E-mail">
                             <label for="inputEmail"></label>
+                            {% if not inputEmail %}
+                            <br>
+                                <label for="">Пользователь с таким E-mail уже существует</label>
+
+                            {% endif %}
                           </div>
                           <div class="col-md-12 mt-input">
-                            <input id="inputPassword" for="inputPassword" name="inputPassword" type="text" class="form-control" placeholder="Пароль">
+                            <input id="inputPassword" for="inputPassword" name="inputPassword" type="password" class="form-control" placeholder="Пароль">
                             <label for="inputPassword"></label>
                           </div>
                           
@@ -48,7 +55,11 @@
                           </div>
                           
                         </div>
-                        <button style="margin-top: 20px" type="submit" class="btn start-btn">Войти</button>
+                        <div class="nav">
+                          <button style="margin-top: 20px" type="submit" class="btn start-btn">Зарегистрироваться</button>
+                          <a href="{% url "login" %}?next=/" style="margin-top: 20px" class="ml-auto btn start-btn">Войти</a>
+                        </div>
+                        
                       </form>
                     </div>
                   </div>
