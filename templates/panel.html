@@ -29,17 +29,16 @@
                     <button onclick="window.location.href='{% url "profile" %}'" type="button" class="btn btn-secondary">Баланс: {{user.money}} ₽</button>
                     <button onclick="window.location.href='{% url "profile" %}'" type="button" class="btn btn-secondary">Профиль</button>
                     <button onclick="window.location.href='{% url "servers" %}'" type="button" class="btn btn-secondary">Сервера</button>
+                    <button onclick="window.location.href='{% url "servers" %}'" type="button" class="btn btn-secondary">Счета</button>
                     <button onclick="window.location.href='{% url "login" %}'" type="button" class="btn btn-secondary" style="border-radius: 0px 0px 6px 6px;-moz-border-radius: 0px 0px 6px 6px;-webkit-border-radius: 0px 0px 6px 6px;">Настройки</button>
                   </div>
                 </div>
                 <div class="col-md-10">
                   <div class="card tbp-card panel-card">
-                    <div class="card-header panel-card-header">
-                      <div class="container">
+                    <div class="card-header panel-card-header nav">
                         {% block panel-header %}
 
                         {% endblock %}
-                      </div>
                     </div>
                     <div class="card-body panel-card-body">
                       <div class="container">

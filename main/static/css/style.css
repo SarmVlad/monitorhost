@@ -168,12 +168,14 @@
 }
 
 .card {
-    border: 0px !important;
     transition: 0.3s;
     border-radius: 6px 6px 6px 6px;
     -moz-border-radius: 6px 6px 6px 6px;
     -webkit-border-radius: 6px 6px 6px 6px;
-    border: 0px solid #000000;
+}
+
+.rates-card {
+    border: 0px !important;
 }
 
 .card-block {
@@ -309,7 +311,9 @@
     color: red
 }
 
-
+.form-card {
+    border: 0px !important;
+}
 
 
 /* panel */
@@ -392,7 +396,9 @@
 }
 
 .panel-card-header {
-    padding: 10px 0px 10px 0px;
+    height: 60px;
+    background: #EDEEF0;
+    padding: 10px 15px 10px 15px;
     border-bottom: 1px solid #2eb9ce !important;
 }
 
@@ -402,8 +408,9 @@
 
 .panel-card-body {
     overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 10px 0px 10px 0px;
+    overflow-x: scroll;
+    padding: 0px !important;
+    height: calc(100vh - 80px - 62px - 50px)
 }
 
 .panel-card-body::-webkit-scrollbar {
@@ -414,3 +421,9 @@
     border-radius: 5px;
     background: rgba(0,0,0,.1);
 }
+
+
+
+
+
+

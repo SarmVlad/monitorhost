@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <a href="{% url "servers_for_sale" %}">Купить сервер</a>
+{% extends "panel.html" %}
+{% load static %}
+{% block panel-title %}Мои сервера{% endblock %}
+
+{% block panel-header%}
+<h3>Сервера</h3>
+<a href="{% url "servers_for_sale" %}" class="ml-auto btn start-btn">Купить сервер</a>
+<a href="#" style="margin-left: 10px" class=" btn start-btn">Раскрутить сервер</a>
+{% endblock %}
+
+{% block panel-body %}
+<div class="row">
     {% if servers %}
-        <ul>
-        {% for server in servers %}
-            <li>
-                {{ server }} - {{ server.status }}
-            </li>
-        {% endfor %}
-        </ul>
-        {% else %}
-        У вас ни одного сервера
-    {% endif %}
-</body>
-</html>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th scope="col">Тариф</th>
+      <th scope="col">ID Сервера</th>
+      <th scope="col">Оплачен до</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for server in servers %}
+    <tr>
+      <th>1</th>
+      <th scope="row">{{ server }} - {{ server.status }}</th>
+      <td>{{server.id}}</td>
+      <td>Otto</td>
+      <td><a href="{% url "servers_for_sale" %}" class="ml-auto btn start-btn">Подробнее</a></td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    У вас ни одного сервера
+{% endif %} 
+</div>
+{% endblock %}
+
+

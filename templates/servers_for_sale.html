@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<ul>
-{% for server in servers %}
+{% extends "panel.html" %}
+{% load static %}
+{% block panel-title %}Купить сервер{% endblock %}
+
+{% block panel-header%}
+<h3>Купить сервер</h3>
+{% endblock %}
+
+{% block panel-body %}
+<div class="row">
+    
+    {% for server in servers %}
     <li>
     <ul>
         <li><a href="{% url "buy_server" server.id %}" >{{ server.name }}</a></li>
@@ -15,6 +18,5 @@
 
     </li>
 {% endfor %}
-</ul>
-</body>
-</html>
+</div>
+{% endblock %}
