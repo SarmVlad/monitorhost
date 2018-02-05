@@ -410,7 +410,7 @@
     overflow-y: scroll;
     overflow-x: scroll;
     padding: 0px !important;
-    height: calc(100vh - 80px - 62px - 50px)
+    height: calc(100vh - 80px - 61px)
 }
 
 .panel-card-body::-webkit-scrollbar {

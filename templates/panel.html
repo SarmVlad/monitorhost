@@ -35,8 +35,13 @@
                 </div>
                 <div class="col-md-10">
                   <div class="card tbp-card panel-card">
-                    <div class="card-header panel-card-header nav">
+                    <div class="card-header panel-card-header">
+                      <div class="nav">
                         {% block panel-header %}
+
+                        {% endblock %}
+                      </div>
+                        {% block servers-header %}
 
                         {% endblock %}
                     </div>
