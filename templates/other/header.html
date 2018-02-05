@@ -44,7 +44,7 @@
                     </div>
                     <div class="dropdown-menu ddm-styles dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'panel' %}">Панель</a>
-                      <a class="dropdown-item" href="#">Баланс: </a>
+                      <a class="dropdown-item" href="#">Баланс: {{user.money}}</a>
                       <a class="dropdown-item" href="{% url 'logout' %}">Выйти</a>
                     </div>
                   <!--  
