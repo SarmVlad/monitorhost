@@ -89,14 +89,14 @@
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                   <div class="card card-hover">
                     <div class="card-header start-card-header nav">
-                      <h3 style="margin: 0; color: white">S1</h3>
-                      <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
+                      <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
                     </div>
                     <div class="card-block">
                       <ul>
-                        <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                        <li><strong>1 Gb</strong> RAM</li>
-                        <li><strong>10 Gb</strong> SSD</li>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
                         <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
                         <li>Поддержка <strong>Bangeecord</strong></li> 
                         <li><strong>Выделенный IP</strong></li>  
@@ -111,14 +111,14 @@
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                   <div class="card card-hover">
                     <div class="card-header start-card-header nav">
-                      <h3 style="margin: 0; color: white">S1</h3>
-                      <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
+                      <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
                     </div>
                     <div class="card-block">
                       <ul>
-                        <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                        <li><strong>1 Gb</strong> RAM</li>
-                        <li><strong>10 Gb</strong> SSD</li>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
                         <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
                         <li>Поддержка <strong>Bangeecord</strong></li> 
                         <li><strong>Выделенный IP</strong></li>  
@@ -151,18 +151,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn premium-btn">Купить</a>
                         </div>
@@ -173,18 +173,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                     <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn premium-btn">Купить</a>
                         </div>
@@ -195,18 +195,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                     <div class="card card-hover">
                       <div class="card-header premium-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h2 class="ml-auto" style="margin: 0; color: white">199 ₽</h2>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn premium-btn">Купить</a>
                         </div>
@@ -235,18 +235,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn pro-btn">Купить</a>
                         </div>
@@ -257,18 +257,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                     <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn pro-btn">Купить</a>
                         </div>
@@ -279,18 +279,18 @@
                   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 rates-margin-fix">
                     <div class="card card-hover">
                       <div class="card-header pro-card-header nav">
-                        <h3 style="margin: 0; color: white">S1</h3>
-                        <h3 class="ml-auto" style="margin: 0; color: white">199 ₽</h3>
-                      </div>
-                      <div class="card-block">
-                        <ul>
-                          <li>Процессор <strong>1 x 3.3 GHz</strong></li>
-                          <li><strong>1 Gb</strong> RAM</li>
-                          <li><strong>10 Gb</strong> SSD</li>
-                          <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
-                          <li>Поддержка <strong>Bangeecord</strong></li> 
-                          <li><strong>Выделенный IP</strong></li>  
-                        </ul>
+                        <h3 style="margin: 0; color: white">{{ servers.0.name }}</h3>
+                      <h2 class="ml-auto" style="margin: 0; color: white">{{ servers.0.price }} ₽</h2>
+                    </div>
+                    <div class="card-block">
+                      <ul>
+                        <li>Процессор <strong>{{ servers.0.processor }}</strong></li>
+                        <li><strong>{{ servers.0.ram }}</strong> RAM</li>
+                        <li><strong>{{ servers.0.disk }}</strong> SSD</li>
+                        <li><strong>Root</strong> доступ и <strong>Панель управления</strong></li>
+                        <li>Поддержка <strong>Bangeecord</strong></li> 
+                        <li><strong>Выделенный IP</strong></li>  
+                      </ul>
                         <div style="text-align: center; margin-top: 20px;">
                           <a href="#" class="btn pro-btn">Купить</a>
                         </div>
@@ -393,20 +393,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $("#header1").on("click","a", function (event) {
-          event.preventDefault();
-          var id  = $(this).attr('href'),
-              top = $(id).offset().top;
-          $('body,html').animate({scrollTop: top}, 1000);
-        }); 
-      });
-    </script>
+    {% include "other/scripts.html" %}
 
 <!-- VK Widget -->
   </body>
