@@ -315,7 +315,7 @@
 /* panel */
 
 .panel-wrapper {
-
+    
 }
 
 .ava {
@@ -323,7 +323,7 @@
     border-radius: 6px 6px 0px 0px;
     -moz-border-radius: 6px 6px 0px 0px;
     -webkit-border-radius: 6px 6px 0px 0px;
-    padding: 20px 20px 5px 20px;
+    padding: 20px 20px 20px 20px;
     background: #34495E;
     display: flex;
     flex-flow: row wrap;
@@ -383,10 +383,34 @@
     background-color: #34495E;
 }
 
+.tbp-card {
+    border: 1px solid #2eb9ce !important;
+}
+
+.panel-card {
+    height: calc(100vh - 80px - 62px)
+}
+
 .panel-card-header {
+    padding: 10px 0px 10px 0px;
     border-bottom: 1px solid #2eb9ce !important;
 }
 
-.tbp-card {
-    border: 1px solid #2eb9ce !important;
+.panel-card-header h3 {
+    margin: 0;
+}
+
+.panel-card-body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px 0px 10px 0px;
+}
+
+.panel-card-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.panel-card-body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0,0,0,.1);
 }

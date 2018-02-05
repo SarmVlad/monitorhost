@@ -7,7 +7,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Личный кабинет - EvilGame</title>
+      <title>{% block panel-title %}{% endblock %} - EvilGame</title>
     </head>
     
     <body>
@@ -25,71 +25,30 @@
                         <img src="{{ user.photo.url }}" alt="">
                       </div>
                       <br>
-                      <h3 class="user-balance">Баланс: {{user.money}}</h3>
                     </div>
+                    <button onclick="window.location.href='{% url "profile" %}'" type="button" class="btn btn-secondary">Баланс: {{user.money}} ₽</button>
                     <button onclick="window.location.href='{% url "profile" %}'" type="button" class="btn btn-secondary">Профиль</button>
-                    <button onclick="window.location.href='{% url "login" %}'" type="button" class="btn btn-secondary">Новости</button>
-                    <button onclick="window.location.href='{% url "login" %}'" type="button" class="btn btn-secondary">Сервера</button>
+                    <button onclick="window.location.href='{% url "servers" %}'" type="button" class="btn btn-secondary">Сервера</button>
                     <button onclick="window.location.href='{% url "login" %}'" type="button" class="btn btn-secondary" style="border-radius: 0px 0px 6px 6px;-moz-border-radius: 0px 0px 6px 6px;-webkit-border-radius: 0px 0px 6px 6px;">Настройки</button>
                   </div>
                 </div>
                 <div class="col-md-10">
-                  <div class="card tbp-card">
+                  <div class="card tbp-card panel-card">
                     <div class="card-header panel-card-header">
-                      Featured
-                    </div>
-                    <div class="card-body">
                       <div class="container">
+                        {% block panel-header %}
 
-                          <form method="POST" action="{% url "load_user_img" %}" enctype="multipart/form-data">
-                                  {% csrf_token %}
-                                      Загрузите фото профиля
-                                      <input type="file" name="file">
-                                      <a href="{% url "panel" %}">Panel</a>
-
-                                    <input type="submit">
-                                  </form>
-                        <div class="row">
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                          <div class="col-md-1">
-                            <div class="col" style="background: red;"></div>
-                          </div>
-                        </div>
+                        {% endblock %}
                       </div>
                     </div>
-                    
+                    <div class="card-body panel-card-body">
+                      <div class="container">
+                        {% block panel-body %}
+
+                        {% endblock %}
+                      </div>
+                      
+                    </div>
                   </div>
                 </div>
               </div>
